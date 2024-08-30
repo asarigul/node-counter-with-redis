@@ -1,0 +1,2 @@
+- node.js backend with redis connection to keep tracking of visit count.
+- dockerized redis + node backend.
