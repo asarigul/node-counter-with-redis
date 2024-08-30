@@ -1,12 +1,10 @@
 {
-  "name": "counter-with-redis",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-
+  "type": "commonjs",
   "dependencies": {
     "express": "^4.19.2",
-    "pug": "^3.0.3"
+    "pug": "^3.0.3",
+    "redis": "^4.7.0",
+    "dotenv": "^16.4.5"
   },
 
   "devDependencies": {
@@ -14,11 +12,9 @@
   },
 
   "scripts": {
-    "start-1": "node index.js",
+    "start": "node index.js",
     "dev": "npx pm2-dev index.js",
-    "start": "npx pm2 start index.js",
+    "start-p": "npx pm2 start index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
-
-  "private": true
+  }
 }
