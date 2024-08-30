@@ -10,7 +10,7 @@ console.log("REDIS_HOST:", process.env.REDIS_HOST);
 console.log("REDIS_PORT:", process.env.REDIS_PORT);
 
 const client = redis.createClient({
-  url: `redis://${process.env.REDIS_HOST}:${process.env.REDIS_PORT || 6379}`,
+  url: `redis://${process.env.REDIS_HOST}:${process.env.REDIS_PORT}`,
 });
 
 client.on("error", (err) => {
@@ -49,7 +49,7 @@ app.get("/", async (req, res) => {
   }
 });
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT;
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });

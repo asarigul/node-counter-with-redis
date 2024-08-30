@@ -1,5 +1,6 @@
 {
   "type": "commonjs",
+  "name": "node-counter-redis",
   "dependencies": {
     "express": "^4.19.2",
     "pug": "^3.0.3",

@@ -1,7 +1,21 @@
 services:
   redis-server:
     image: 'redis'
+    ports:
+      - '6379:6379'
   node-app:
     build: .
+    depends_on:
+      - redis-server
+    environment:
+     - PORT=${PORT}
+     - REDIS_HOST=${REDIS_HOST}
+     - REDIS_PORT=${REDIS_PORT}
+
+    # env_file:
+    # - path: dev.env
+    # - path: prod.env
+    #   required: false
+
     ports:
-      - '3000:3000'
+      - '80:${PORT}'
