@@ -19,3 +19,4 @@ services:
 
     ports:
       - '80:${PORT}'
+    restart: on-failure

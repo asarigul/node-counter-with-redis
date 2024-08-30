@@ -1,6 +1,6 @@
 const express = require('express');
 const redis = require("redis");
-require("dotenv").config();
+const process = require("process");
 
 const app = express();
 app.set("view engine", "pug");
@@ -36,8 +36,12 @@ app.get("/", async (req, res) => {
   try {
     const visits = await client.get("visits");
     const visitCount = parseInt(visits) + 1;
-
     await client.set("visits", visitCount);
+
+    // crash every 5th visit
+    if (visitCount % 5 == 0) {
+      process.exit(-1);
+    }
 
     res.render("home", {
       title: "Welcome",
