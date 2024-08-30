@@ -3,6 +3,9 @@ services:
     image: 'redis'
     ports:
       - '6379:6379'
+    # restart unless forcibly stopped
+    restart: unless-stopped
+
   node-app:
     build: .
     depends_on:
@@ -11,12 +14,8 @@ services:
      - PORT=${PORT}
      - REDIS_HOST=${REDIS_HOST}
      - REDIS_PORT=${REDIS_PORT}
-
-    # env_file:
-    # - path: dev.env
-    # - path: prod.env
-    #   required: false
-
+    
     ports:
       - '80:${PORT}'
-    restart: on-failure
+    # restart on failure (exit code != 0)
+    restart: on-failure 
