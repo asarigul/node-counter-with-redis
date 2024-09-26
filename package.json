@@ -2,7 +2,7 @@
   "type": "commonjs",
   "name": "node-counter-redis",
   "dependencies": {
-    "express": "^4.19.2",
+    "express": "^4.21.0",
     "pug": "^3.0.3",
     "redis": "^4.7.0",
     "dotenv": "^16.4.5"
